@@ -9,24 +9,20 @@ from oauth2client.service_account import ServiceAccountCredentials
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
-# --- USER CREDENTIALS SETUP ---
-hashed_passwords = stauth.Hasher(['123', 'abc']).generate()
 credentials = {
     "usernames": {
         "john": {
             "name": "John Doe",
-            "password": hashed_passwords[0],
+            "password": "$2b$12$MSSgzVgXbOkk.ZmTFtfspu6C18P1TFP8m96aGoSAqL6JDdxCBsZRO",
             "email": "john@example.com"
         },
         "alice": {
             "name": "Alice Smith",
-            "password": hashed_passwords[1],
+            "password": "$2b$12$29ylg1RHp/7wCUyDqynvCOEFw6zUkA/vSKddpdBFBB8y7fa7bQacO",
             "email": "alice@example.com"
         }
     }
 }
-
 # --- AUTHENTICATOR SETUP ---
 authenticator = stauth.Authenticate(
     credentials,
